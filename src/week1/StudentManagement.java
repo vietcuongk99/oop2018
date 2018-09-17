@@ -1,4 +1,4 @@
-package week1;
+﻿package week1;
 
 public class StudentManagement {
 
@@ -6,7 +6,7 @@ public class StudentManagement {
 
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
-        return false; // xóa dòng này sau khi cài đặt
+        return false; // xóa dòng này sau khi cài đặt hehehehe
     }
 
     void studentsByGroup() {
