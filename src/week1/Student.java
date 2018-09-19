@@ -35,4 +35,8 @@ public class Student {
         // TODO:
         return null; // xóa dòng này sau khi cài đặt
     }
+
+    public static void main(String[] args) {
+
+    }
 }
