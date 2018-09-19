@@ -1,7 +1,6 @@
 
 
-public class StudentManagement
-{
+public class StudentManagement {
     private Student[] students = new Student[100];
 
     /* method: students have same group */
@@ -13,119 +12,116 @@ public class StudentManagement
 
 
     /*method : print students have same group*/
-    public void studentByGroup()
-    {
-        int i, j;
-        boolean arr[] = new boolean[4];
-        for(i = 0; i < 4; i++)
-        {
-            arr[i] = false;
+    public void studentByGroup(){
+        int n=0;
+        for(int i=0;students[i]!=null;i++){
+            n++;
         }
-
-        for(i = 0; i < 4; i++)
+        for(int i=0 ; i < n ; i++)
         {
-
-            for(j = i; j < 4; j ++)
-            {
-                if(students[j].getGroup().equals(students[i].getGroup()) == true && arr[j] == false)
-                {
-                    arr[j] = true;
-                    students[j].getInfo();
+            boolean check=true;
+            for (int j=0;j<i;j++)
+                if (students[i].getGroup().equals(students[j].getGroup())){
+                    check = false;
+                    break;
                 }
+            if (check==true) {
+                System.out.println("Group " + students[i].getGroup() + ":");
+                for (int j = i; j < n; ++j)
+                    if (students[i].getGroup().equals(students[j].getGroup())) {
+                        System.out.println(students[j].getId()+"---"+students[j].getName());
+
+                    }
             }
 
         }
     }
 
     /*method: remove students have sample id*/
-    public void removeStudent(String id)
-    {
-        int i, j, n = 4;
-        for(i = 0; i < n && students[i] != null; i++)
-        {
-            if(students[i].getID().equals(id))
-            {
-                int m = n - 1;
-                for(j = i; j < m; j++)
-                {
-                    students[j] = students[j + 1];
-                }
-                System.out.println("done");
-                n--;
-            }
-
+    public void removeStudent(String id ){
+        int n=0;
+        for(int i=0;students[i]!=null;i++){
+            n++;
         }
+        for(int i=0; i<n; i++)
+            while (students[i] != null && students[i].getId() == id){
+                n--;
+                for(int j= i; j<n;j++)
+                    students[j]=students[j+1];
+                students[n]= null;
+            }
     }
 
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
 
 
 
         /* task 1 */
         Student s = new Student();
-        s.setName("Phung Thi Tuyet Mai");
-        s.setID("17020875");
-        s.setGroup("K62CD");
-        s.setMail("phungtuyet234@gmail.com");
+        s.setName("Duong Phuong Nam");
+        s.setid("17020908");
+        s.setGroup("INT22042");
+        s.setEmail("namduongkiwi@gmail.com");
 
         System.out.println(s.getName());
         s.getInfo();
-        System.out.println("-----------------------------");
 
 
         /*task 2*/
-        Student s1 = new Student();
+        Student s1 = new Student("vu duc minh", "17021234", "vuminh@gmail.com");
+        s1.setGroup("1");
 
-        Student s2 = new Student("Mai", "17020875", "17020875@vnu.com");
+        Student s2 = new Student("Pham Nguyen Nam Duong", "17029800", "namdz@gmail.com");
+        s2.setGroup("2");
 
-        Student s3 = new Student("Thao", "17028293","17020322@vnu.com");
+        Student s3 = new Student("Pham Nam Duong", "17028090","faker@gmail.com");
+        s3.setGroup("2");
 
-        s3.setGroup("INT22042");
+        Student s4 = new Student("Nam Duong Pham Nguyen", "17029080", "nampro@gmail.com");
+        s4.setGroup("2");
 
-        Student s4 = new Student(s);
+        Student s5 = new Student("Mnh duc Vu", "17024321", "minhfdfdfdfd");
+        s5.setGroup("1");
 
 
-        StudentManagement stm = new StudentManagement();
+        StudentManagement sm = new StudentManagement();
 
         /* task 3*/
-        if(stm.sameGroup(s2, s3))
-        {
+        if(sm.sameGroup(s2, s3)) {
             System.out.println("Same Group");
         }
-        else
-        {
-            System.out.println("Unsame Group");
+        else {
+            System.out.println("Not same");
         }
 
-        if(stm.sameGroup(s2, s4))
-        {
+        if(sm.sameGroup(s1, s3)) {
             System.out.println("Same Group");
         }
-        else
-        {
-            System.out.println("Unsame Group");
+        else {
+            System.out.println("Not same");
         }
-        System.out.println("-----------------------------------");
 
 
 
 
         /* task 4*/
-        stm.students[0] = s1;
-        stm.students[1] = s2;
-        stm.students[2] = s3;
-        stm.students[3] = s;
+        sm.students[0] = s1;
+        sm.students[1] = s2;
+        sm.students[2] = s3;
+        sm.students[3] = s4;
+        sm.students[4] = s5;
 
-        stm.studentByGroup();
-        System.out.println("-----------------------------------");
+        sm.studentByGroup();
+
 
 
 
         /*task 5*/
-        stm.removeStudent("17020875");
-        System.out.println("-----------------------------------");
+        sm.removeStudent("17021234");
+
+
 
 
     }
