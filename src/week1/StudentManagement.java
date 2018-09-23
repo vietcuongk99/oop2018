@@ -8,10 +8,7 @@ public class StudentManagement {
 
     public static boolean sameGroup(Student s1, Student s2) {
         // TODO:
-        if(s1.getGroup().equals(s2.getGroup()))
-            return true;
-        else
-            return false;
+        return s1.getGroup().equals(s2.getGroup());
     }
 
     void studentsByGroup() {
@@ -50,12 +47,12 @@ public class StudentManagement {
         s2.setGroup("INT22042");
         s2.setEmail("uetmail@vnu.edu.vn");
 
-
+        System.out.println("Cau 8: ");
         s.getInfo();
         s3.getInfo();
         s4.getInfo();
 
-
+        System.out.println("Cau 10: ");
         System.out.println("Compare s1 and s2 group: " + sameGroup(s1,s2));
         System.out.println("Compare s0 and s2 group: " + sameGroup(s0,s2));
         System.out.println("Compare s1 and s0 group: " + sameGroup(s1,s0));
