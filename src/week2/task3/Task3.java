@@ -36,7 +36,7 @@ public class Task3 {
 
         // hàm so sánh tuổi mèo
         public boolean sameAge(Object obj) {
-            week2.task3.Task3.Cat cat = (week2.task3.Task3.Cat) obj;
+            Cat cat = (Cat) obj;
             if ((getAge()) == (cat.getAge()))
                 return true;
             else
@@ -83,7 +83,7 @@ public class Task3 {
 
         //hàm so sánh điểm giữa 2 học sinh
         public boolean compare(Object obj) {
-            week2.task3.Task3.Student s = (week2.task3.Task3.Student) obj;
+            Student s = (Student) obj;
             if ((getScore()) == (s.getScore()))
                 return true;
             else
@@ -98,7 +98,7 @@ public class Task3 {
         }
 
         // hàm in ra học lực 1 học sinh
-        void getRank(week2.task3.Task3.Student s) {
+        void getRank(Student s) {
             if(s.getScore()>9)
                 System.out.println("Học lực: Giỏi");
             if(s.getScore()<=9&&s.getScore()>=7)
@@ -107,14 +107,60 @@ public class Task3 {
                 System.out.println("Học lực: Trung bình");
         }
     }
+    class Phone {
+        String name;
+        String company;
+        int cost;
 
+        Phone[] smp = new Phone[3];
+
+        public void setName(String name){
+            this.name = name;
+        }
+        public String getName(){
+            return name;
+        }
+        public void setCompany(String company){
+            this.company = company;
+        }
+        public String getCompany() {
+            return company;
+        }
+        public void setCost(int cost){
+            this.cost = cost;
+        }
+        public int getCost(){
+            return cost;
+        }
+
+        void getInfo() {
+            System.out.println("Tên smartphone: " + getName());
+            System.out.println("Nhà sản xuất: " + getCompany());
+            System.out.println("Giá: " + getCost() + " dollar");
+        }
+
+        void phoneRate(Phone phone) {
+            if (phone.getCost() >= 250)
+                System.out.println("Đây là mẫu smartphone cao cấp.");
+            else
+                System.out.println("Đây là mẫu smartphone phổ thông.");
+
+        }
+        void sameCompany(Phone p1, Phone p2) {
+            if(p1.getCompany().equals(p2.getCompany()))
+                System.out.println(p1.getName()+" và "+p2.getName()+" cùng nhà sản xuất.");
+            else
+                System.out.println(p1.getName()+" và "+p2.getName()+" khác nhà sản xuất.");
+        }
+
+    }
     public static void main(String[] args){
 
         System.out.println("Ví dụ cho lớp Cat" + "\n");
-        week2.task3.Task3 o1 = new week2.task3.Task3();
-        week2.task3.Task3 o2 = new week2.task3.Task3();
-        week2.task3.Task3.Cat c1 = o1.new Cat();
-        week2.task3.Task3.Cat c2 = o2.new Cat();
+        Task3 o1 = new Task3();
+        Task3 o2 = new Task3();
+        Task3.Cat c1 = o1.new Cat();
+        Task3.Cat c2 = o2.new Cat();
 
         c1.setName("Tom");
         c1.setAge(10);
@@ -132,12 +178,12 @@ public class Task3 {
             System.out.println("Hai con mèo khác tuổi nhau" + "\n");
 
         System.out.println("Ví dụ cho lớp Student" + "\n");
-        week2.task3.Task3 o3 = new week2.task3.Task3();
-        week2.task3.Task3 o4 = new week2.task3.Task3();
-        week2.task3.Task3 sv = new week2.task3.Task3();
-        week2.task3.Task3.Student s1 = o3.new Student();
-        week2.task3.Task3.Student s2 = o4.new Student();
-        week2.task3.Task3.Student stu = sv.new Student();
+        Task3 o3 = new Task3();
+        Task3 o4 = new Task3();
+        Task3 sv = new Task3();
+        Task3.Student s1 = o3.new Student();
+        Task3.Student s2 = o4.new Student();
+        Task3.Student stu = sv.new Student();
 
         s1.setName("NGUYỄN VĂN A");
         s1.setGrade(10);
@@ -151,9 +197,43 @@ public class Task3 {
         stu.getRank(s2);
 
         if(s1.compare(s2))
-            System.out.println("Hai hoc sinh có số điểm giống nhau");
+            System.out.println("Hai hoc sinh có số điểm giống nhau" +"\n");
         else
-            System.out.println("Hai học sinh có số điểm khác nhau");
+            System.out.println("Hai học sinh có số điểm khác nhau" +"\n");
+
+        System.out.println("Ví dụ cho lớp Phone" + "\n");
+
+        Task3 o5 = new Task3();
+        Task3 o6 = new Task3();
+        Task3 o7 = new Task3();
+        Task3 smp = new Task3();
+        Task3.Phone p1 = o5.new Phone();
+        Task3.Phone p2 = o6.new Phone();
+        Task3.Phone p3 = o7.new Phone();
+        Task3.Phone phone = smp.new Phone();
+
+        p1.setName("Samsung Note9");
+        p1.setCost(1250);
+        p1.setCompany("Samsung");
+        p2.setName("Iphone X");
+        p2.setCost(1000);
+        p2.setCompany("Apple");
+        p3.setName("Samsung J7");
+        p3.setCost(200);
+        p3.setCompany("Samsung");
+
+        p1.getInfo();
+        phone.phoneRate(p1);
+        p2.getInfo();
+        phone.phoneRate(p2);
+        p3.getInfo();
+        phone.phoneRate(p3);
+
+
+        phone.sameCompany(p1,p2);
+        phone.sameCompany(p2,p3);
+        phone.sameCompany(p1,p3);
+
 
     }
 }
