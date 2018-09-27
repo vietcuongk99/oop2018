@@ -18,35 +18,35 @@ public class Fraction {
         else
             return gcd(b,a%b);
     }
-    public week2.task2.Fraction add(week2.task2.Fraction other) {
+    public Fraction add(Fraction other) {
         // TODO: Phương thức cộng hai phân số (this và other), trả về đối tượng Fraction mới
         int tu = other.numerator * this.denominator + other.denominator * this.numerator;
         int mau = other.denominator * this.denominator;
         int i = gcd(tu,mau);
-        week2.task2.Fraction ps = new week2.task2.Fraction((tu/i), (mau/i));
+        Fraction ps = new Fraction((tu/i), (mau/i));
         return ps;
     }
 
-    public week2.task2.Fraction subtract(week2.task2.Fraction other) {
+    public Fraction subtract(Fraction other) {
         // TODO: Phương thức trừ hai phân số (this và other), trả về đối tượng Fraction mới
         int tu = this.numerator * other.denominator - this.denominator* other.numerator;
         int mau = other.denominator * this.denominator;
         int i = gcd(tu,mau);
 
-        week2.task2.Fraction ps = new week2.task2.Fraction((tu/i), (mau/i));
+        Fraction ps = new Fraction((tu/i), (mau/i));
         return ps;
     }
-    public week2.task2.Fraction multiply(week2.task2.Fraction other) {
+    public Fraction multiply(Fraction other) {
         // TODO: Phương thức nhân hai phân số (this và other), trả về đối tượng Fraction mới
         int tu = other.numerator * this.numerator;
         int mau = other.denominator * this.denominator;
         int i = gcd(tu,mau);
 
-        week2.task2.Fraction ps = new week2.task2.Fraction((tu/i), (mau/i));
+        Fraction ps = new Fraction((tu/i), (mau/i));
         return ps;
     }
 
-    public week2.task2.Fraction divide(week2.task2.Fraction other) {
+    public Fraction divide(Fraction other) {
         // TODO: Phương thức chia hai phân số (this và other), trả về đối tượng Fraction mới
         int tu = this.numerator * other.denominator;
         int mau = other.numerator * this.denominator;
@@ -56,7 +56,7 @@ public class Fraction {
         return ps;
     }
     public boolean equals(Object obj){
-        week2.task2.Fraction ps = (week2.task2.Fraction)obj;
+        Fraction ps = (Fraction)obj;
 
         if((float)(numerator)/(denominator) == (float)(ps.numerator)/(ps.denominator))
             return true;
@@ -65,8 +65,8 @@ public class Fraction {
     }
 
     public static void main(String[] args) {
-        week2.task2.Fraction ps1 = new week2.task2.Fraction(10, 2);
-        week2.task2.Fraction ps2 = new week2.task2.Fraction(11, 2);
+        Fraction ps1 = new Fraction(0, 2);
+        Fraction ps2 = new Fraction(-2, 2);
 
         System.out.println("Tong hai phan so: " + ps1.add(ps2).numerator + "/" + ps1.add(ps2).denominator);
         System.out.println("Hieu hai phan so: " + ps1.subtract(ps2).numerator + "/" + ps1.subtract(ps2).denominator);
@@ -78,7 +78,6 @@ public class Fraction {
         }
         else
             System.out.println("Hai phan so da cho khac nhau");
-
     }
 }
 
