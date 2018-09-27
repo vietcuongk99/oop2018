@@ -129,10 +129,11 @@ class Teacher{
         else System.out.println("this class is not good");
 
     }
-    //lớp thầy giáo đang dạy
-    public void checkclass(String cl){
-        System.out.println("Teacher " + this.getName() + " is working in " + cl);
+    //  set lớp dạy cho giáo viên
+    public void setclass(String clas){
+        System.out.println(this.getName()+ " is working in " + clas);
     }
+
 }
 
 class tamgiac{
@@ -175,11 +176,13 @@ class tamgiac{
             System.out.println("tam giác này cân");
         else System.out.println("tam giác này không cân");
     }
+    // kiểm tra tam giascc vuông hay không
     public void checksquare(){
         if(a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b)
             System.out.println("tam giác này vuông");
         else System.out.println("tam giác này không vuông");
     }
+    //tính chu vi tam giác
     public double chuvi(){
         return a + b + c;
     }

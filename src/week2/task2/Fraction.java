@@ -9,7 +9,11 @@ public class Fraction {
         this.numerator = numerator;
         this.denominator = denominator;
     }
-
+    public int check(){
+        if(this.denominator == 0)
+            return 1;
+        else return 0;
+    }
     // ham rut gon phan so duoin dang phan so toi gian
     public static void rutgon(Fraction n) {
         int a = n.numerator;
@@ -72,12 +76,17 @@ public class Fraction {
 
 
     //    @Override
-    public boolean equals(Fraction other){
-        Fraction n = new Fraction(this.numerator, this.denominator);
-        rutgon(n);
-        rutgon(other);
-        if(n.numerator == other.numerator && n.denominator == other.denominator)
-            return true;
+    public boolean equals(Object obj){
+        if (obj instanceof Fraction)
+        {
+            Fraction other = (Fraction) obj;
+            if (this.numerator * other.denominator == other.numerator * this.denominator){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
         else return false;
     }
 
@@ -85,16 +94,23 @@ public class Fraction {
         Fraction a = new Fraction(2,-6);
         Fraction b = new Fraction(-1,2);
         Fraction result = new Fraction(1,1);
-        rutgon(a);
-        System.out.println(a.phanso());
-        result = a.add(b);
-        System.out.println("ket qua phep cong: " + result.phanso());
-        result = b.subtract(a);
-        System.out.println("ket qua phep tru: " + result.phanso());
-        result = b.multiply(a);
-        System.out.println("ket qua phep nhan: "+ result.phanso());
-        result = b.divide(a);
-        System.out.println("ket qua phep chia; "+ result.phanso());
-        System.out.println("hai phan so bang  nhau: " + a.equals(b));
+        if(a.check() == 1){
+            System.out.println("phân số thứ nhất không hợp lệ");
+        }
+        else if(b.check() == 1){
+            System.out.println("phân số thứ hai không hợp lệ");
+        }
+        else{
+            System.out.println(a.phanso());
+            result = a.add(b);
+            System.out.println("ket qua phep cong: " + result.phanso());
+            result = b.subtract(a);
+            System.out.println("ket qua phep tru: " + result.phanso());
+            result = b.multiply(a);
+            System.out.println("ket qua phep nhan: "+ result.phanso());
+            result = b.divide(a);
+            System.out.println("ket qua phep chia; "+ result.phanso());
+            System.out.println("hai phan so bang  nhau: " + a.equals(b));
+        }
     }
 }
