@@ -107,13 +107,12 @@ public class Task3 {
                 System.out.println("Học lực: Trung bình");
         }
     }
-    class Phone {
-        String name;
+    class Phone {                       
+        String name;                    // khai báo thuộc tính cho Phone
         String company;
         int cost;
-
-        Phone[] smp = new Phone[3];
-
+        
+        // khai báo các phương thức getter, setter
         public void setName(String name){
             this.name = name;
         }
@@ -132,13 +131,14 @@ public class Task3 {
         public int getCost(){
             return cost;
         }
-
+        //hàm in ra thông tin điện thoại
         void getInfo() {
             System.out.println("Tên smartphone: " + getName());
             System.out.println("Nhà sản xuất: " + getCompany());
             System.out.println("Giá: " + getCost() + " dollar");
         }
-
+        
+        //hàm in ra phân khúc điện thoại dựa vào cost
         void phoneRate(Phone phone) {
             if (phone.getCost() >= 250)
                 System.out.println("Đây là mẫu smartphone cao cấp.");
@@ -146,6 +146,8 @@ public class Task3 {
                 System.out.println("Đây là mẫu smartphone phổ thông.");
 
         }
+        
+        //hàm so sánh nơi sản xuất của 2 điện thoại
         void sameCompany(Phone p1, Phone p2) {
             if(p1.getCompany().equals(p2.getCompany()))
                 System.out.println(p1.getName()+" và "+p2.getName()+" cùng nhà sản xuất.");
