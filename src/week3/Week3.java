@@ -1,5 +1,9 @@
 package week3;
 
+
+import java.util.*;
+
+
 public class Week3 {
 
     public static int max(int m, int n) {
